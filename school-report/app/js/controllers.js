@@ -13,6 +13,12 @@ angular.module('myApp.controllers', ['myApp.services'])
 
     $scope.newMark = '';
 
+    $scope.averageOk = false;
+
+    $scope.$watch('subject.average', function() {
+      $scope.averageOk = $scope.subject.average >= 10;
+    });
+
     $scope.deleteMarkHandler = function(index) {
       $scope.subject.removeMark(index);
     }
