@@ -11,7 +11,8 @@ describe('controllers', function(){
     module('myApp.controllers');
     inject(function($controller, $rootScope, reportService) {
       scope = $rootScope.$new();
-      subjectController = $controller('SubjectController', {$scope: scope, reportService: reportService});
+      subjectController = $controller('SubjectController', {$scope: scope});
+      scope.subject = reportService.createSampleSubject();
     });
   });
 

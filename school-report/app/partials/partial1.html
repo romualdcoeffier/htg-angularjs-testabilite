@@ -1,27 +1,36 @@
-<div class="subject" ng-controller="SubjectController">
+<script type="text/ng-template" id="subjectView">
+  <div class="subject" ng-controller="SubjectController">
 
-  <ul class="inline row-fluid">
-    <li class="span1">
-      <input type="text" class="input-mini" ng-model="subject.name">
-    </li>
-    <li class="span1 text-right">
-      <strong class="average-ok-{{averageOk}}">{{subject.average | number: 2}}</strong>
-    </li>
-    <li class="span3">
-      <ul class="inline">
-        <li ng-repeat="mark in subject.marks">
-          {{mark}}
-          <i class="icon-remove" ng-click="deleteMarkHandler($index)"> </i>
-        </li>
-      </ul>
-      <div>
-        <input type="text" class="input-mini" ng-model="newMark">
-        <i class="icon-plus-sign" ng-click="addMarkHandler()"> </i>
-      </div>
-    </li>
-    <li class="span7">
-      <textarea cols="100" rows="3" ng-model="subject.comments"></textarea>
-    </li>
-  </ul>
+    <ul class="inline row-fluid">
+      <li class="span1">
+        <input type="text" class="input-mini" ng-model="subject.name">
+      </li>
+      <li class="span1 text-right">
+        <strong class="average-ok-{{averageOk}}">{{subject.average | number: 2}}</strong>
+      </li>
+      <li class="span3">
+        <ul class="inline">
+          <li ng-repeat="mark in subject.marks">
+            {{mark}}
+            <i class="icon-remove" ng-click="deleteMarkHandler($index)"> </i>
+          </li>
+        </ul>
+        <div>
+          <input type="text" class="input-mini" ng-model="newMark">
+          <i class="icon-plus-sign" ng-click="addMarkHandler()"> </i>
+        </div>
+      </li>
+      <li class="span7">
+        <textarea cols="100" rows="3" ng-model="subject.comments"></textarea>
+      </li>
+    </ul>
+
+  </div>
+</script>
+
+
+<div ng-controller="ReportController">
+
+  <sr-subject ng-repeat="subject in subjects" sr-subject="subject"/>
 
 </div>

@@ -7,9 +7,9 @@ angular.module('myApp.controllers', ['myApp.services'])
   .controller('MyCtrl1', [function() {}])
   .controller('MyCtrl2', [function() {}])
 
-  .controller('SubjectController', ['$scope', 'reportService', function ($scope, reportService) {
+  .controller('SubjectController', ['$scope', function ($scope) {
 
-    $scope.subject = reportService.createSampleSubject();
+    $scope.subject = null; // directive attribute
 
     $scope.newMark = '';
 
@@ -27,6 +27,12 @@ angular.module('myApp.controllers', ['myApp.services'])
       $scope.subject.addMark(parseInt($scope.newMark));
       $scope.newMark = '';
     }
+
+  }])
+
+  .controller('ReportController', ["$scope", "reportService", function($scope, reportService) {
+
+    $scope.subjects = reportService.createSampleReport();
 
   }])
 
