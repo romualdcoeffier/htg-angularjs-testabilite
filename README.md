@@ -14,7 +14,7 @@ Sources et slides:
  * step-03: add empty view for subject 
  * step-04: add controller and binding for subject
  * step-05: add and remove mark actions 
- * step-06: colors to dislay image  
+ * step-06: colors to display average  
  * step-07: add a test for controller 
  * step-08: directive for subject
  
