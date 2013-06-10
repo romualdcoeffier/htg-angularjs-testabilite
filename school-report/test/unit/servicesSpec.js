@@ -12,33 +12,33 @@ describe('service', function() {
     }));
   });
 
-  describe('average', function() {
+  describe('average', function(averageService) {
 
-    it('should return null when no mark', function() {
+    it('should return null when no mark', inject(function(averageService) {
       expect(averageService.calculateAverage([])).toEqual(null);
-    });
+    }));
 
-    it('should return 15 when marks are 15', function() {
+    it('should return 15 when marks are 15', inject(function(averageService) {
       expect(averageService.calculateAverage([15])).toEqual(15);
-    });
+    }));
 
-    it('should return 12 when marks are 14, 10, 12', function() {
+    it('should return 12 when marks are 14, 10, 12', inject(function(averageService) {
       expect(averageService.calculateAverage([14, 10, 12])).toEqual(12);
-    });
+    }));
 
   });
 
   describe('subject', function() {
 
-    it('test subject after creation', function() {
+    it('test subject after creation', inject(function(reportService) {
       var subject = reportService.createSubject('aSubjectName');
       expect(subject.name).toEqual('aSubjectName');
       expect(subject.marks).toEqual([]);
       expect(subject.average).toEqual(null);
       expect(subject.comments).toEqual('');
-    });
+    }));
 
-    it('test add/remove marks to subject', function() {
+    it('test add/remove marks to subject', inject(function(reportService) {
       var subject = reportService.createSubject('aSubjectName');
 
       subject.addMark(10);
@@ -56,7 +56,7 @@ describe('service', function() {
       subject.removeMark(0);
       expect(subject.marks).toEqual([]);
       expect(subject.average).toEqual(null);
-    });
+    }));
 
   });
 
