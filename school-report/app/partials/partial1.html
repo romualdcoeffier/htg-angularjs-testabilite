@@ -1,20 +1,16 @@
-<div class="subject">
+<div class="subject" ng-controller="SubjectController">
 
   <ul class="inline row-fluid">
     <li class="span1">
-      <input type="text" class="input-mini" value="NAME">
+      <input type="text" class="input-mini" ng-model="subject.name">
     </li>
     <li class="span1 text-right">
-      <strong>AVERAGE</strong>
+      <strong>{{subject.average}}</strong>
     </li>
     <li class="span3">
       <ul class="inline">
-        <li>
-          MARK1
-          <i class="icon-remove"> </i>
-        </li>
-        <li>
-          MARK2
+        <li ng-repeat="mark in subject.marks">
+          {{mark}}
           <i class="icon-remove"> </i>
         </li>
       </ul>
@@ -24,7 +20,7 @@
       </div>
     </li>
     <li class="span7">
-      <textarea cols="100" rows="3">COMMENTS</textarea>
+      <textarea cols="100" rows="3" ng-model="subject.comments"></textarea>
     </li>
   </ul>
 
