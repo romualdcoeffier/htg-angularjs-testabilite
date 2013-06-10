@@ -11,6 +11,17 @@ angular.module('myApp.controllers', ['myApp.services'])
 
     $scope.subject = reportService.createSampleSubject();
 
+    $scope.newMark = '';
+
+    $scope.deleteMarkHandler = function(index) {
+      $scope.subject.removeMark(index);
+    }
+
+    $scope.addMarkHandler = function() {
+      $scope.subject.addMark(parseInt($scope.newMark));
+      $scope.newMark = '';
+    }
+
   }])
 
 ;

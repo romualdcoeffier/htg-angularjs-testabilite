@@ -5,18 +5,18 @@
       <input type="text" class="input-mini" ng-model="subject.name">
     </li>
     <li class="span1 text-right">
-      <strong>{{subject.average}}</strong>
+      <strong>{{subject.average | number: 2}}</strong>
     </li>
     <li class="span3">
       <ul class="inline">
         <li ng-repeat="mark in subject.marks">
           {{mark}}
-          <i class="icon-remove"> </i>
+          <i class="icon-remove" ng-click="deleteMarkHandler($index)"> </i>
         </li>
       </ul>
       <div>
-        <input type="text" class="input-mini">
-        <i class="icon-plus-sign"> </i>
+        <input type="text" class="input-mini" ng-model="newMark">
+        <i class="icon-plus-sign" ng-click="addMarkHandler()"> </i>
       </div>
     </li>
     <li class="span7">
